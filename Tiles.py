@@ -16,10 +16,11 @@ class TileWithCost(Tile):
         self.owner = None
         
 class Property(TileWithCost):
-    def __init__(self, name, cost, rent_lst):
+    def __init__(self, name, cost, rent_lst, color):
         super().__init__(name, cost)
         self.num_houses = 0
         self.rent_lst = rent_lst
+        self.color = color
 
 class Railroad(TileWithCost):
     def __init__(self, name, cost):
@@ -29,37 +30,6 @@ class Utility(TileWithCost):
     def __init__(self, name, cost):
         super().__init__(name, cost)
 
-class BrownProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-
-class LightBlueProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-
-class PinkProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-
-class OrangeProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-
-class RedProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-
-class YellowProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-        
-class GreenProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
-        
-class DarkBlueProperty(Property):
-    def __init__(self, name, cost, rent_lst):
-        super().__init__(name, cost, rent_lst)
 
 
 

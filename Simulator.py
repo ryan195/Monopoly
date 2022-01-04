@@ -193,7 +193,7 @@ def step_on_tile(game, player, tile, player_lst, roll):
             elif card_drawn == 8:
                 player.money += 50
             elif card_drawn == 9:
-                player.nus_cap5 += 1
+                player.jail_free += 1
             elif card_drawn == 10:
                 if tile is game.board[8]:
                     current = 8
@@ -204,8 +204,8 @@ def step_on_tile(game, player, tile, player_lst, roll):
                 player.placement = (current - 3)
                 step_on_tile(game, player, game.board[current - 3], player_lst, roll)
             elif card_drawn == 11:
-                if player.nus_cap5:
-                    player.nus_cap5 -= 1
+                if player.jail_free:
+                    player.jail_free -= 1
                     print(f"{player.name} used get out of jail free card")
                 else:
                     player.jail_counter = 3
@@ -244,10 +244,10 @@ def step_on_tile(game, player, tile, player_lst, roll):
             elif card_drawn == 4:
                 player.money += 50
             elif card_drawn == 5:
-                player.nus_cap5 += 1
+                player.jail_free += 1
             elif card_drawn == 6:
-                if player.nus_cap5:
-                    player.nus_cap5 -= 1
+                if player.jail_free:
+                    player.jail_free -= 1
                     print(f"{player.name} used get out of jail free card")
                 else:
                     player.jail_counter = 3
@@ -281,8 +281,8 @@ def step_on_tile(game, player, tile, player_lst, roll):
             else:
                 player.money += 100
         elif tile.name == "Go To Jail":
-            if player.nus_cap5:
-                player.nus_cap5 -= 1
+            if player.jail_free:
+                player.jail_free -= 1
                 print(f"{player.name} used get out of jail free card")
             else:
                 player.jail_counter = 3
@@ -295,25 +295,25 @@ def step_on_tile(game, player, tile, player_lst, roll):
             player.money -= 100
         
 def has_monopoly(player, tile):
-    if type(tile) == BrownProperty:
+    if tile.color == "brown":
         if tile.owner.brown == 2:
             return True
-    elif type(tile) == LightBlueProperty:
+    elif tile.color == "lightblue":
         if tile.owner.lightblue == 3:
             return True
-    elif type(tile) == PinkProperty:
+    elif tile.color == "pink":
         if tile.owner.pink == 3:
             return True
-    elif type(tile) == OrangeProperty:
+    elif tile.color == "orange":
         if tile.owner.orange == 3:
             return True
-    elif type(tile) == RedProperty:
+    elif tile.color == "red":
         if tile.owner.red == 3:
             return True
-    elif type(tile) == YellowProperty:
+    elif tile.color == "yellow":
         if tile.owner.yellow == 3:
             return True
-    elif type(tile) == GreenProperty:
+    elif tile.color == "green":
         if tile.owner.green == 3:
             return True
     else:
